@@ -1,5 +1,5 @@
 {
-  "name": "puewue",
+  "name": "power-dashboard",
   "version": "0.0.1",
   "main": [
     "assets/javascripts/application.js",
@@ -7,9 +7,7 @@
   ],
   "ignore": [
     "**/.*",
-    "node_modules",
-    "components",
-    "bower_components"
+    "assets/bower_components"
   ],
   "dependencies": {
     "backbone": "~0.9.10",

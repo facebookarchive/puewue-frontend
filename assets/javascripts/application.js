@@ -1,16 +1,3 @@
-//= require lodash/dist/lodash
-//= require jquery-tiny-pubsub/dist/ba-tiny-pubsub.js
-//= require moment/moment
-//= require sylvester/sylvester
-//= require d3/d3
-//= require json2/json2
-//= require backbone/backbone
-//= require tweenjs/src/Tween
-//= require simple-inheritance/Class
-//= require_tree ./graph_components
-//= require_tree ./backbone_components
-//= require_self
-
 $(function() {
 
   // Don't execute anything to do with the graphs.
@@ -51,20 +38,23 @@ $(function() {
     }
   ];
 
-  var dataCenterId = $('#app').data('center-id');
+  var apiConfig = {
+    host: 'http://localhost:3000',
+    uriPrefix: 'timeline/example'
+  };
 
   // Start the wheel graph
   var wheelGraph = new WheelGraphComposite({
-    dataCenterId: dataCenterId,
     endpointAlias: '24-hours',
-    metrics: metrics
+    metrics: metrics,
+    apiConfig: apiConfig
   });
   window.wheelGraph = wheelGraph;
 
   // Start the histograms
   var histograms = new HistogramsComposite({
-    dataCenterId: dataCenterId,
-    metrics: metrics
+    metrics: metrics,
+    apiConfig: apiConfig
   });
   window.histograms = histograms;
 

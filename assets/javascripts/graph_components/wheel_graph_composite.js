@@ -4,7 +4,6 @@
 var WheelGraphComposite = Class.extend({
   defaults: {
     graphData: null,
-    dataCenterId: null,
     endpointAlias: null,
     metrics: null
   },
@@ -19,11 +18,11 @@ var WheelGraphComposite = Class.extend({
 
 
     this.graphData = new GraphData({
-      dataCenterId: this.config.dataCenterId,
       endpointAlias: this.config.endpointAlias,
       onReset: this.draw,
       throttle: 5,
       reverseOrder: true,
+      apiConfig: this.config.apiConfig,
       onError: function() {
         _this.intervalIcon.displayError();
       }

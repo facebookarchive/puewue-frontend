@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>Data Center — Dashboard</title>
-  <link rel="stylesheet" href="assets/javascript/normalize.css">
-  <link rel="stylesheet" href="assets/javascript/application.css">
-  <script src="assets/javascript/modernizr.js"></script>
+  <link rel="stylesheet" href="assets/stylesheets/normalize.css">
+  <link rel="stylesheet" href="assets/stylesheets/application.css">
+  <script src="assets/bower_components/modernizr/modernizr.js"></script>
 </head>
 <body>
 
-  <div class="container" id="app" data-center-id="data-center">
+  <div class="container" id="app" data-api-host="http://localhost:8000" data-api-uri-prefix="timeline/example">
 
     <div class="container__inner">
 
@@ -131,7 +131,7 @@
             <div class="row">
 
               <div class="boxout__intro-col">
-                <p><strong>Annualized Numbers</strong> &mdash; The chart above shows real-time PUE, WUE, temperature and humidity for our data center. The numbers to the right are the trailing 12-month PUE and WUE as of the end of June 2013.</p>
+                <p><strong>Annualized Numbers</strong> &mdash; The chart above shows real-time PUE, WUE, temperature and humidity for our data center. The numbers to the right are the trailing 12-month PUE and WUE.</p>
               </div>
 
               <section class="boxout__data-col">
@@ -144,7 +144,7 @@
 
               <section class="boxout__data-col">
                 <h4>WUE</h4>
-                <div class="large-chars">.51 <small>L/kWh</small></div>
+                <div class="large-chars">.51</div>
                 <div class="item-label-note">
                   TTM
                 </div>
@@ -303,6 +303,7 @@
 
   </div> <!-- / .container -->
 
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <script src="assets/bower_components/lodash/dist/lodash.js"></script>
   <script src="assets/bower_components/jquery-tiny-pubsub/dist/ba-tiny-pubsub.js"></script>
@@ -314,33 +315,37 @@
   <script src="assets/bower_components/tweenjs/src/Tween.js"></script>
   <script src="assets/bower_components/simple-inheritance/Class.js"></script>
 
-  <script src="assets/javascript/graph_components/background_axis.js"></script>
-  <script src="assets/javascript/graph_components/clock.js"></script>
-  <script src="assets/javascript/graph_components/data_line.js"></script>
-  <script src="assets/javascript/graph_components/date_filter_nav.js"></script>
-  <script src="assets/javascript/graph_components/date_label.js"></script>
-  <script src="assets/javascript/graph_components/delay_segment.js"></script>
-  <script src="assets/javascript/graph_components/donut.js"></script>
-  <script src="assets/javascript/graph_components/event_cloak.js"></script>
-  <script src="assets/javascript/graph_components/graph_base.js"></script>
-  <script src="assets/javascript/graph_components/graph_component.js"></script>
-  <script src="assets/javascript/graph_components/guide_line.js"></script>
-  <script src="assets/javascript/graph_components/handle.js"></script>
-  <script src="assets/javascript/graph_components/histogram_metric.js"></script>
-  <script src="assets/javascript/graph_components/histograms_composite.js"></script>
-  <script src="assets/javascript/graph_components/interval_icon.js"></script>
-  <script src="assets/javascript/graph_components/line_trail.js"></script>
-  <script src="assets/javascript/graph_components/radial_guideline.js"></script>
-  <script src="assets/javascript/graph_components/radial_line.js"></script>
-  <script src="assets/javascript/graph_components/raf.js"></script>
-  <script src="assets/javascript/graph_components/range_line.js"></script>
-  <script src="assets/javascript/graph_components/split_labels.js"></script>
-  <script src="assets/javascript/graph_components/util.js"></script>
-  <script src="assets/javascript/graph_components/wheel_graph_composite.js"></script>
-  <script src="assets/javascript/graph_components/wheel_graph_metric.js"></script>
+  <script src="assets/javascripts/graph_components/graph_component.js"></script>
+  <script src="assets/javascripts/graph_components/data_line.js"></script>
 
-  <script src="assets/javascript/backbone_components/models.js"></script>
-  <script src="assets/javascript/backbone_components/views.js"></script>
+  <script src="assets/javascripts/graph_components/background_axis.js"></script>
+  <script src="assets/javascripts/graph_components/clock.js"></script>
+  <script src="assets/javascripts/graph_components/date_filter_nav.js"></script>
+  <script src="assets/javascripts/graph_components/date_label.js"></script>
+  <script src="assets/javascripts/graph_components/delay_segment.js"></script>
+  <script src="assets/javascripts/graph_components/donut.js"></script>
+  <script src="assets/javascripts/graph_components/event_cloak.js"></script>
+  <script src="assets/javascripts/graph_components/graph_base.js"></script>
+  <script src="assets/javascripts/graph_components/graph_data.js"></script>
+  <script src="assets/javascripts/graph_components/guide_line.js"></script>
+  <script src="assets/javascripts/graph_components/handle.js"></script>
+  <script src="assets/javascripts/graph_components/histogram_metric.js"></script>
+  <script src="assets/javascripts/graph_components/histograms_composite.js"></script>
+  <script src="assets/javascripts/graph_components/interval_icon.js"></script>
+  <script src="assets/javascripts/graph_components/line_trail.js"></script>
+  <script src="assets/javascripts/graph_components/radial_guideline.js"></script>
+  <script src="assets/javascripts/graph_components/radial_line.js"></script>
+  <script src="assets/javascripts/graph_components/raf.js"></script>
+  <script src="assets/javascripts/graph_components/range_line.js"></script>
+  <script src="assets/javascripts/graph_components/split_labels.js"></script>
+  <script src="assets/javascripts/graph_components/util.js"></script>
+  <script src="assets/javascripts/graph_components/wheel_graph_composite.js"></script>
+  <script src="assets/javascripts/graph_components/wheel_graph_metric.js"></script>
+
+  <script src="assets/javascripts/backbone_components/models.js"></script>
+  <script src="assets/javascripts/backbone_components/views.js"></script>
+
+  <script src="assets/javascripts/application.js"></script>
 
 
 </body>

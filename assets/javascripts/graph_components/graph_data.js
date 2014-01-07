@@ -1,13 +1,13 @@
 var GraphData = Class.extend({
   defaults: {
-    dataCenterId: null,
     data: [ ],
     onReset: null,
     onError: function() { },
     reverseOrder: false,
     throttle: null,
-    testURL: null,
+    apiHost: null,
     endpointAlias: null,
+    apiConfig: null,
     minDifference: 1500
   },
   init: function(options) {
@@ -15,9 +15,8 @@ var GraphData = Class.extend({
     this.config = _.extend({ }, this.defaults, options);
     this.data = this.config.data;
     this.steps = null;
-    this.dataCenterId = this.config.dataCenterId;
     this.endpointAlias = this.config.endpointAlias;
-    if(this.dataCenterId !== null && this.endpointAlias !== null) {
+    if(this.config.apiConfig && this.endpointAlias !== null) {
       this.reset();
     }
   },
@@ -32,13 +31,12 @@ var GraphData = Class.extend({
   reset: function() {
     var _this = this;
     this.loading = true;
-    var _url;
-    if(this.config.testURL) {
-      _url = this.config.testURL;
-    }
-    else {
-      _url = '/timeline/' + this.dataCenterId + '/'  + this.endpointAlias + '.json';
-    }
+    var _url = '';
+
+    if(this.config.apiConfig.host) _url += this.config.apiConfig.host;
+    if(this.config.apiConfig.uriPrefix) _url += '/' + this.config.apiConfig.uriPrefix;
+    _url += '/' + this.endpointAlias + '.json';
+
     $.ajax({
       url: _url,
       dataType: 'json',

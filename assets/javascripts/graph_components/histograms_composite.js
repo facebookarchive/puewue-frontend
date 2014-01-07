@@ -1,7 +1,6 @@
 var HistogramsComposite = Class.extend({
   defaults: {
     graphData: null,
-    dataCenterId: null,
     endpointAlias: null
   },
   init: function(options) {
@@ -12,11 +11,11 @@ var HistogramsComposite = Class.extend({
     this.$el = $('.histogram-group');
 
     this.graphData = new GraphData({
-      dataCenterId: this.config.dataCenterId,
       endpointAlias: this.config.endpointAlias,
       onReset: this.draw,
       throttle: 10,
-      reverseOrder: true
+      reverseOrder: true,
+      apiConfig: this.config.apiConfig
     });
 
     this.histogramMetrics = [ ];
