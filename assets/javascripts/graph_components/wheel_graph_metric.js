@@ -55,7 +55,7 @@ var WheelGraphMetric = Class.extend({
 
     this.collection.add(this.model);
 
-    this.$metricDisplay = this.displayGroup.$el.find('.metric-display[data-metric-alias="' + this.metric.alias + '"]');
+    this.$metricDisplay = this.displayGroup.$el.find('.metric-display[data-metric="' + this.metric.alias + '"]');
 
     this.radialLineView = new DataLineView({
       radialLine: this.radialLine,

@@ -19,9 +19,9 @@ var DateFilterNav = Class.extend({
         rangeValue: $a.data('range-value')
       });
       _this.splitLabels.draw({
-        labels: $a.data('labels'),
         steps: $a.data('steps'),
-        suffix: $a.data('suffix')
+        suffix: $a.data('suffix'),
+        rangeValue: $a.data('range-value')
       });
     });
     if(this.$ancs.filter('.current').length) {

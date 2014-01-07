@@ -3,9 +3,9 @@
  */
 var WheelGraphComposite = Class.extend({
   defaults: {
-    graphData: null,
     endpointAlias: null,
-    metrics: null
+    metrics: null,
+    apiConfig: null
   },
   init: function(options) {
 

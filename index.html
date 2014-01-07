@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Data Center — Dashboard</title>
+  <title>Power Dashboard</title>
   <link rel="stylesheet" href="assets/stylesheets/normalize.css">
   <link rel="stylesheet" href="assets/stylesheets/application.css">
   <script src="assets/bower_components/modernizr/modernizr.js"></script>
 </head>
 <body>
 
-  <div class="container" id="app" data-api-host="http://localhost:8000" data-api-uri-prefix="timeline/example">
+  <div class="container" id="app">
 
     <div class="container__inner">
 
       <header class="page-header">
-        <h1 class="page-header__title">Data Center</h1>
-        <div class="page-header__label">Dashboard</div>
+        <h1 class="page-header__title">Power Dashboard</h1>
+        <div class="page-header__label">A boilerplate dashboard to represent data usage</div>
       </header>
 
       <div class="hero-feature">
@@ -64,7 +64,8 @@
           <div class="hero-feature__aux">
 
             <section class="metric-display-group">
-              <article class="metric-display pue" data-metric-alias="pue">
+
+              <article class="metric-display pue" data-metric="pue">
                 <div class="metric-display__label">
                   <h4>Power Usage Effectiveness</h4>
                   <div class="item-label-note">(PUE)</div>
@@ -78,7 +79,7 @@
                 </div>
               </article>
 
-              <article class="metric-display wue" data-metric-alias="wue">
+              <article class="metric-display wue" data-metric="wue">
                 <div class="metric-display__label">
                   <h4>Water Usage Effectiveness</h4>
                   <div class="item-label-note">(WUE)</div>
@@ -92,7 +93,7 @@
                 </div>
               </article>
 
-              <article class="metric-display humidity" data-metric-alias="humidity" data-view-mode="percentage">
+              <article class="metric-display humidity" data-metric="humidity" data-view-mode="percentage">
                 <div class="metric-display__label">
                   <h4>Humidity</h4>
                   <div class="item-label-note">(Outdoors)</div>
@@ -106,7 +107,7 @@
                 </div>
               </article>
 
-              <article class="metric-display temperature" data-metric-alias="temperature" data-view-mode="temperature">
+              <article class="metric-display temperature" data-metric="temperature" data-view-mode="temperature">
                 <div class="metric-display__label">
                   <h4>Temperature</h4>
                   <div class="item-label-note">(Outdoors)</div>
@@ -119,7 +120,9 @@
                   <p>Servers need to be kept cool in order to function properly. Our servers function in a wider range of temperatures than standard models, which is part of why we operate so efficiently. Hot server air is cooled via outside air economization and, if need be, through evaporative cooling. Evaporative cooling yields higher instantaneous PUE and WUE numbers.</p>
                 </div>
               </article>
+
             </section>
+
           </div>  <!-- / .hero-feature__aux -->
 
         </div> <!-- / .hero-feature__row -->
@@ -189,24 +192,17 @@
             <div class="col--aux">
               <nav class="date-range-nav" data-behavior="filter_data_range">
                 <ul>
-                  <li><a class="current"  href="#"  data-range="7-days" data-throttle="5" data-unit="days" data-steps="7" data-range-value="7" data-labels="7,6,5,4,3,2,1">7 days</a></li>
-                  <li><a href="#" data-range="30-days" data-steps="3" data-throttle="5" data-unit="days" data-labels="30,20,10" data-range-value="30">30 days</a></li>
-                  <li><a href="#" data-range="90-days" data-steps="3" data-throttle="5" data-unit="days" data-labels="90,60,30" data-range-value="90">90 days</a></li>
-                  <li><a href="#" data-range="1-year" data-suffix="" data-throttle="5" data-unit="months" data-steps="12" data-range-value="12" data-labels="12,11,10,9,8,7,6,5,4,3,2,1">1 year</a></li>
+                  <li><a class="current"  href="#"  data-range="7-days" data-throttle="5" data-unit="days" data-steps="7" data-range-value="7">7 days</a></li>
+                  <li><a href="#" data-range="30-days" data-steps="3" data-throttle="5" data-unit="days" data-range-value="30">30 days</a></li>
+                  <li><a href="#" data-range="90-days" data-steps="3" data-throttle="5" data-unit="days" data-range-value="90">90 days</a></li>
+                  <li><a href="#" data-range="1-year" data-suffix="" data-throttle="5" data-unit="months" data-steps="12" data-range-value="12">1 year</a></li>
                 </ul>
               </nav>
             </div>
 
             <div class="col--main--histograms">
               <section class="histogram-group">
-                <div class="histogram-group__event-cloak">
-                  <div class="event-cloak__listing" data-metric="pue"></div>
-                  <div class="event-cloak__listing" data-metric="wue"></div>
-                  <div class="event-cloak__listing" data-metric="humidity"></div>
-                  <div class="event-cloak__listing" data-metric="temperature"></div>
-                </div>
-
-                <article class="histogram pue">
+                <article class="histogram pue" data-metric="pue">
                   <h4 class="histogram__title">Power Usage Effectiveness <span class="item-label-note">(PUE)</span></h4>
                   <div class="histogram__value-label"><span class="value-container">&nbsp;</span></div>
                   <div class="histogram__inner" data-metric="pue">
@@ -217,7 +213,7 @@
                   <div class="background-axis-range-label bottom"><span class="value-container"></span></div>
                 </article>
 
-                <article class="histogram wue">
+                <article class="histogram wue" data-metric="wue">
                   <h4 class="histogram__title">Water Usage Effectiveness <span class="item-label-note">(WUE)</span></h4>
                   <div class="histogram__value-label"><span class="value-container">&nbsp;</span> <small class="small-unit">L/kWh</small></div>
                   <div class="histogram__inner" data-metric="wue">
@@ -228,7 +224,7 @@
                   <div class="background-axis-range-label bottom"><span class="value-container"></span></div>
                 </article>
 
-                <article class="histogram humidity">
+                <article class="histogram humidity" data-metric="humidity">
                   <h4 class="histogram__title">Humidity</h4>
                   <div class="histogram__value-label"><span class="value-container">&nbsp;</span>%</div>
                   <div class="histogram__inner" data-metric="humidity">
@@ -239,7 +235,7 @@
                   <div class="background-axis-range-label bottom"><span class="value-container"></span>%</div>
                 </article>
 
-                <article class="histogram temperature">
+                <article class="histogram temperature" data-metric="temperature">
                   <h4 class="histogram__title">Temperature</h4>
                   <div class="histogram__value-label"><span class="value-container">&nbsp;</span>°</div>
                   <div class="histogram__inner" data-metric="temperature">
@@ -345,8 +341,9 @@
   <script src="assets/javascripts/backbone_components/models.js"></script>
   <script src="assets/javascripts/backbone_components/views.js"></script>
 
-  <script src="assets/javascripts/application.js"></script>
+  <script src="assets/javascripts/power_dashboard.js"></script>
 
+  <script src="assets/javascripts/application.js"></script>
 
 </body>
 </html>

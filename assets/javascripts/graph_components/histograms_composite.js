@@ -1,7 +1,8 @@
 var HistogramsComposite = Class.extend({
   defaults: {
-    graphData: null,
-    endpointAlias: null
+    endpointAlias: null,
+    metrics: null,
+    apiConfig: null
   },
   init: function(options) {
     var _this = this;
@@ -50,7 +51,11 @@ var HistogramsComposite = Class.extend({
       maxPos: this.clock.config.startAngle
     });
 
-    var $eventCloak = $('.histogram-group__event-cloak');
+    var $eventCloak = $('<div class="histogram-group__event-cloak" />').prependTo(this.$el);
+    $.each(this.metrics, function(k, v) {
+      $eventCloak.append('<div class="event-cloak__listing" data-metric="' + v.alias + '"></div>');
+    });
+
     this.eventCloak = new EventCloak({
       animate: true,
       clock: this.clock,
@@ -75,7 +80,7 @@ var HistogramsComposite = Class.extend({
       $this.data('left', $this.position().left);
       $this.data('right', $this.position().left + $this.outerWidth());
       $this.data('bottom', $this.position().top + $this.outerHeight());
-      $this.data('histogram', $('.histogram__inner[data-metric="' + $this.data('metric') + '"]').closest('.histogram'));
+      $this.data('histogram', $('.histogram[data-metric="' + $this.data('metric') + '"]'));
     });
 
     // Prevent pointer events completely.
