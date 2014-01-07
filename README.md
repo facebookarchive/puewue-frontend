@@ -1,8 +1,14 @@
 # Power Dashboard
 
+**A client-side boilerplate for displaying near-real-time data from a data center.**
+
++ Interactive wheel graph and histograms for up to 4 metrics
++ Boilerplate HTML code for displaying these components on a web page
++ Configuration to bridge to a data center's JSON-based API (and not just limited to data centers)
+
 ## Getting Started
 
-1. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**)
+1. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**) inside of `assets/javascripts/application.js`
 2. Test your connect with a local HTTP server, e.g. `SimpleHTTPServer`.
 
 ## Configuration
@@ -15,7 +21,7 @@ An example of how to instantiate this is available in `assets/javascripts/applic
 
 ```
 {
-	wheelGraphEndpointAlias: '24-hours', // See 'API notes > URL structure' for more details
+	wheelGraphEndpointAlias: '24-hours', // See 'Configuration > API > URL structure' for more details
 	wheelGraph: true, // Set to 'false' to disable the wheel graph
 	histograms: true, // Set to 'false' to disable the set of histograms
 	apiConfig: {
@@ -23,12 +29,12 @@ An example of how to instantiate this is available in `assets/javascripts/applic
 		host: 'http://localhost:3000'
 
 		// This is an optional prefix for the URI, with no leading or trailing slash
-		// See 'API notes > URL structure' for more details
+		// See 'Configuration > API > URL structure' for more details
 		uriPrefix: 'my/directory'
 	},
 	metrics: [
 		{
-			// This references a key in your API responses (see API notes)
+			// This references a key in your API responses (see Configuration > API > Data point structure)
 			alias: 'humidity',
 
 
@@ -86,7 +92,9 @@ An example of how to instantiate this is available in `assets/javascripts/applic
 
 *@todo*
 
-## API notes
+### API
+
+Here are some instructions on ensuring your API is compatible with the Power Dashboard:
 
 ### URL structure
 URLs are concatenated on the client-side, using a combination of server settings, a metric alias, and an endpoint alias.
@@ -120,10 +128,11 @@ Histograms support average ranges, which show a transparent range line behind th
 
 ```
 {
+	"timestamp": 1389087180000,
 	"my_point": 1.5,
-	"min_my_point": 1,
-	"max_my_point": 2,
-	"my_other_point"
+	"min_my_point": 1, // The same alias, but prefixed with min_
+	"max_my_point": 2, // This same alias, but prefixed with max_
+	"my_other_point": 235
 }
 ```
 
@@ -148,3 +157,4 @@ Power Dashboard has the following dependencies:
 + Specificy the timestamp in the API notes
 + Script loader for PowerDashboard code.
 + Write about theming
++ Test disabling both WheelGraph and Histograms
