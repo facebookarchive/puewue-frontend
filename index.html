@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Data Center — Dashboard</title>
+  <link rel="stylesheet" href="assets/javascript/normalize.css">
+  <link rel="stylesheet" href="assets/javascript/application.css">
+  <script src="assets/javascript/modernizr.js"></script>
+</head>
+<body>
+
+  <div class="container" id="app" data-center-id="data-center">
+
+    <div class="container__inner">
+
+      <header class="page-header">
+        <h1 class="page-header__title">Data Center</h1>
+        <div class="page-header__label">Dashboard</div>
+      </header>
+
+      <div class="hero-feature">
+
+        <div class="support-message">
+          <p>Your browser is <strong>doesn't support graphs</strong>, which are used on this page. <a target="_blank" href="http://www.browser-update.org/update.html">Learn how to update your browser</a>.</p>
+        </div>
+
+        <div class="hero-feature__row">
+
+          <div class="hero-feature__main corner-label-holder">
+
+            <div class="svg-only" >
+              <div class="corner-label">
+                <div id="standard-msg">
+                  Next update:<br><span class="interval-icon-label" id="countdown-timer"></span>
+                  <div class="interval-icon">
+
+                  </div>
+                </div>
+                <div id="processing-msg">
+                  Processing...<br>
+                  Stand by
+                </div>
+              </div>
+              <div class="corner-label--bottom">2.5 hour delay<br>24 hour period</div>
+              <div class="wheel-graph-container">
+                <div class="clock-display">
+                  <div class="clock-display__mid">
+                    <div class="clock-display__inner">
+                      <div class="clock-display__value">&nbsp;</div>
+                      <div class="clock-display__aux"><span class="clock-display__context">&nbsp;</span><span class="clock-display__day">&nbsp;</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="wheel-graph-event-cloak">
+
+                </div>
+                <div class="wheel-graph">
+
+                </div>
+              </div>
+            </div>
+          </div> <!-- / .hero-feature__main -->
+
+          <div class="hero-feature__aux">
+
+            <section class="metric-display-group">
+              <article class="metric-display pue" data-metric-alias="pue">
+                <div class="metric-display__label">
+                  <h4>Power Usage Effectiveness</h4>
+                  <div class="item-label-note">(PUE)</div>
+                </div>
+                <div class="metric-display__value svg-only">
+                  <strong class='large-chars'><span class="value-container">&nbsp;</span></strong>
+                  <div class="item-label-note"><i class="icon--down-arrow metric-display__icon"></i></div>
+                </div>
+                <div class="metric-display__text">
+                  <p>Power usage effectiveness (PUE) is a metric developed by <a target="_blank" href="http://www.thegreengrid.org/">The Green Grid</a> that measures data center efficiency. It’s a ratio of the total power consumed by a data center to the energy delivered to the servers. The ideal PUE is 1.0, meaning 100% of the data center energy powers the IT equipment. Best practice PUE for the IT sector is <a target="_blank" href="http://www.energystar.gov/ia/partners/prod_development/downloads/EPA_Datacenter_Report_Congress_Final1.pdf">1.5</a>.</p>
+                </div>
+              </article>
+
+              <article class="metric-display wue" data-metric-alias="wue">
+                <div class="metric-display__label">
+                  <h4>Water Usage Effectiveness</h4>
+                  <div class="item-label-note">(WUE)</div>
+                </div>
+                <div class="metric-display__value svg-only">
+                  <strong class='large-chars'><span class="value-container">&nbsp;</span></strong>
+                  <div class="item-label-note"><span class="hide-on-select">L/kWh</span> <i class="icon--down-arrow metric-display__icon"></i></div>
+                </div>
+                <div class="metric-display__text">
+                  <p>Water Usage Effectiveness (WUE), developed by <a target="_blank" href="http://www.thegreengrid.org/">The Green Grid</a>, is a ratio of data center water use to the energy delivered to the servers. We care about using water efficiently and pioneered reporting WUE in Q4 2012. Since WUE is a relatively new measure, there are currently no industry standards or baselines.</p>
+                </div>
+              </article>
+
+              <article class="metric-display humidity" data-metric-alias="humidity" data-view-mode="percentage">
+                <div class="metric-display__label">
+                  <h4>Humidity</h4>
+                  <div class="item-label-note">(Outdoors)</div>
+                </div>
+                <div class="metric-display__value svg-only">
+                  <strong class='large-chars'><span class="value-container">&nbsp;</span><span class="percent">%</span></strong>
+                  <div class="item-label-note"><span class="hide-on-select">/100%</span> <i class="icon--down-arrow metric-display__icon"></i></div>
+                </div>
+                <div class="metric-display__text">
+                  <p>Indoor humidity in our data centers is controlled through an evaporative cooling system. Typically, when it’s hot, the humidity is low. This allows evaporative cooling to be effective, and it increases our water use. When humidity is low, the mechanical systems consume water to add humidity, which also increases WUE.</p>
+                </div>
+              </article>
+
+              <article class="metric-display temperature" data-metric-alias="temperature" data-view-mode="temperature">
+                <div class="metric-display__label">
+                  <h4>Temperature</h4>
+                  <div class="item-label-note">(Outdoors)</div>
+                </div>
+                <div class="metric-display__value svg-only">
+                  <strong class='large-chars'><span class="value-container">&nbsp;</span>°</strong>
+                  <div class="item-label-note"><span class="hide-on-select">F /<span class="converted-value-container">&nbsp;</span>°C </span><i class="icon--down-arrow metric-display__icon"></i></div>
+                </div>
+                <div class="metric-display__text">
+                  <p>Servers need to be kept cool in order to function properly. Our servers function in a wider range of temperatures than standard models, which is part of why we operate so efficiently. Hot server air is cooled via outside air economization and, if need be, through evaporative cooling. Evaporative cooling yields higher instantaneous PUE and WUE numbers.</p>
+                </div>
+              </article>
+            </section>
+          </div>  <!-- / .hero-feature__aux -->
+
+        </div> <!-- / .hero-feature__row -->
+
+        <div class="hero-feature__row--boxout">
+
+          <section class="boxout">
+
+            <div class="row">
+
+              <div class="boxout__intro-col">
+                <p><strong>Annualized Numbers</strong> &mdash; The chart above shows real-time PUE, WUE, temperature and humidity for our data center. The numbers to the right are the trailing 12-month PUE and WUE as of the end of June 2013.</p>
+              </div>
+
+              <section class="boxout__data-col">
+                <h4>PUE</h4>
+                <div class="large-chars">1.09</div>
+                <div class="item-label-note">
+                  TTM
+                </div>
+              </section>
+
+              <section class="boxout__data-col">
+                <h4>WUE</h4>
+                <div class="large-chars">.51 <small>L/kWh</small></div>
+                <div class="item-label-note">
+                  TTM
+                </div>
+              </section>
+
+            </div>
+
+          </section>
+
+        </div> <!-- / .hero-feature__row -->
+
+      </div> <!-- / .hero-feature -->
+
+      <div class="divided-area-container">
+
+        <section class="divided-area">
+
+          <div class="row">
+
+            <div class="col--aux">
+
+              <h4>Be Open</h4>
+
+            </div>
+
+            <div class="col--main">
+
+              <p>We are sharing dashboards that show real-time PUE (<a target="_blank"href="http://www.thegreengrid.org/Global/Content/white-papers/The-Green-Grid-Data-Center-Power-Efficiency-Metrics-PUE-and-DCiE">power usage effectiveness</a>) and WUE (<a target="_blank" href="http://www.thegreengrid.org/en/Global/Content/white-papers/WUE">water usage effectiveness</a>) at our data centers.</p>
+
+              <p>We work hard to maintain extremely efficient data centers, and we use data to track the performance of these facilities.</p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="divided-area svg-only">
+
+          <div class="row">
+
+            <div class="col--aux">
+              <nav class="date-range-nav" data-behavior="filter_data_range">
+                <ul>
+                  <li><a class="current"  href="#"  data-range="7-days" data-throttle="5" data-unit="days" data-steps="7" data-range-value="7" data-labels="7,6,5,4,3,2,1">7 days</a></li>
+                  <li><a href="#" data-range="30-days" data-steps="3" data-throttle="5" data-unit="days" data-labels="30,20,10" data-range-value="30">30 days</a></li>
+                  <li><a href="#" data-range="90-days" data-steps="3" data-throttle="5" data-unit="days" data-labels="90,60,30" data-range-value="90">90 days</a></li>
+                  <li><a href="#" data-range="1-year" data-suffix="" data-throttle="5" data-unit="months" data-steps="12" data-range-value="12" data-labels="12,11,10,9,8,7,6,5,4,3,2,1">1 year</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="col--main--histograms">
+              <section class="histogram-group">
+                <div class="histogram-group__event-cloak">
+                  <div class="event-cloak__listing" data-metric="pue"></div>
+                  <div class="event-cloak__listing" data-metric="wue"></div>
+                  <div class="event-cloak__listing" data-metric="humidity"></div>
+                  <div class="event-cloak__listing" data-metric="temperature"></div>
+                </div>
+
+                <article class="histogram pue">
+                  <h4 class="histogram__title">Power Usage Effectiveness <span class="item-label-note">(PUE)</span></h4>
+                  <div class="histogram__value-label"><span class="value-container">&nbsp;</span></div>
+                  <div class="histogram__inner" data-metric="pue">
+
+                  </div>
+                  <div class="histogram__mouse-label"><span class="value-container"></span></div>
+                  <div class="background-axis-range-label top"><span class="value-container"></span></div>
+                  <div class="background-axis-range-label bottom"><span class="value-container"></span></div>
+                </article>
+
+                <article class="histogram wue">
+                  <h4 class="histogram__title">Water Usage Effectiveness <span class="item-label-note">(WUE)</span></h4>
+                  <div class="histogram__value-label"><span class="value-container">&nbsp;</span> <small class="small-unit">L/kWh</small></div>
+                  <div class="histogram__inner" data-metric="wue">
+
+                  </div>
+                  <div class="histogram__mouse-label"><span class="value-container"></span></div>
+                  <div class="background-axis-range-label top"><span class="value-container"></span></div>
+                  <div class="background-axis-range-label bottom"><span class="value-container"></span></div>
+                </article>
+
+                <article class="histogram humidity">
+                  <h4 class="histogram__title">Humidity</h4>
+                  <div class="histogram__value-label"><span class="value-container">&nbsp;</span>%</div>
+                  <div class="histogram__inner" data-metric="humidity">
+
+                  </div>
+                  <div class="histogram__mouse-label"><span class="value-container"></span>%</div>
+                  <div class="background-axis-range-label top"><span class="value-container"></span>%</div>
+                  <div class="background-axis-range-label bottom"><span class="value-container"></span>%</div>
+                </article>
+
+                <article class="histogram temperature">
+                  <h4 class="histogram__title">Temperature</h4>
+                  <div class="histogram__value-label"><span class="value-container">&nbsp;</span>°</div>
+                  <div class="histogram__inner" data-metric="temperature">
+
+                  </div>
+                  <div class="histogram__mouse-label"><span class="value-container"></span>°</div>
+                  <div class="background-axis-range-label top"><span class="value-container"></span>°</div>
+                  <div class="background-axis-range-label bottom"><span class="value-container"></span>°</div>
+                </article>
+
+                <footer class="histogram-group__footer">
+                  <div class="histogram-date-label footer-state">
+                    <div class="histogram-date-label__inner">
+                      <span class="histogram-date-label__keyline">&nbsp;</span>
+                      <span class="value-container"></span>
+                    </div>
+                  </div>
+                  <div class="histogram-split-labels footer-state">
+
+                  </div>
+                </footer>
+              </section>
+            </div>
+
+          </div>
+
+        </section>
+
+        <footer class="divided-area">
+
+          <div class="row">
+
+            <div class="col--aux">
+              <h4>Learn More</h4>
+            </div>
+
+            <div class="col--main">
+              <div class="col--split">
+                <nav>
+                  <ul>
+                    <li><a target="_blank" href="http://www.thegreengrid.org/">The Green Grid</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="col--split">
+                <nav>
+                  <ul>
+                    <li><a target="_blank" href="http://opencompute.org/">The Open Compute Project</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+          </div>
+
+        </footer>
+
+      </div>
+
+    </div>
+
+  </div> <!-- / .container -->
+
+
+  <script src="assets/bower_components/lodash/dist/lodash.js"></script>
+  <script src="assets/bower_components/jquery-tiny-pubsub/dist/ba-tiny-pubsub.js"></script>
+  <script src="assets/bower_components/moment/moment.js"></script>
+  <script src="assets/bower_components/sylvester/sylvester.js"></script>
+  <script src="assets/bower_components/d3/d3.js"></script>
+  <script src="assets/bower_components/json2/json2.js"></script>
+  <script src="assets/bower_components/backbone/backbone.js"></script>
+  <script src="assets/bower_components/tweenjs/src/Tween.js"></script>
+  <script src="assets/bower_components/simple-inheritance/Class.js"></script>
+
+  <script src="assets/javascript/graph_components/background_axis.js"></script>
+  <script src="assets/javascript/graph_components/clock.js"></script>
+  <script src="assets/javascript/graph_components/data_line.js"></script>
+  <script src="assets/javascript/graph_components/date_filter_nav.js"></script>
+  <script src="assets/javascript/graph_components/date_label.js"></script>
+  <script src="assets/javascript/graph_components/delay_segment.js"></script>
+  <script src="assets/javascript/graph_components/donut.js"></script>
+  <script src="assets/javascript/graph_components/event_cloak.js"></script>
+  <script src="assets/javascript/graph_components/graph_base.js"></script>
+  <script src="assets/javascript/graph_components/graph_component.js"></script>
+  <script src="assets/javascript/graph_components/guide_line.js"></script>
+  <script src="assets/javascript/graph_components/handle.js"></script>
+  <script src="assets/javascript/graph_components/histogram_metric.js"></script>
+  <script src="assets/javascript/graph_components/histograms_composite.js"></script>
+  <script src="assets/javascript/graph_components/interval_icon.js"></script>
+  <script src="assets/javascript/graph_components/line_trail.js"></script>
+  <script src="assets/javascript/graph_components/radial_guideline.js"></script>
+  <script src="assets/javascript/graph_components/radial_line.js"></script>
+  <script src="assets/javascript/graph_components/raf.js"></script>
+  <script src="assets/javascript/graph_components/range_line.js"></script>
+  <script src="assets/javascript/graph_components/split_labels.js"></script>
+  <script src="assets/javascript/graph_components/util.js"></script>
+  <script src="assets/javascript/graph_components/wheel_graph_composite.js"></script>
+  <script src="assets/javascript/graph_components/wheel_graph_metric.js"></script>
+
+  <script src="assets/javascript/backbone_components/models.js"></script>
+  <script src="assets/javascript/backbone_components/views.js"></script>
+
+
+</body>
+</html>

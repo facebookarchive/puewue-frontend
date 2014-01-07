@@ -1,0 +1,1098 @@
+@import "bourbon/bourbon";
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Dimensions
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$surround: 16px;
+$column-width: 147px;
+$gutter-width: 18px;
+$columns: 5;
+$container-inner: ($column-width * $columns) + ($gutter-width * ($columns - 1));
+$container: 807px;
+$vertical: 20px;
+$vertical-large: 30px;
+$border-radius: 3px;
+$opacity-light: rgba(#000, 0.35);
+$opacity-mid: rgba(#000, 0.5);
+$opacity-dark: rgba(#000, 0.7);
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Colors
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$header_bg: #eeeddb;
+$stroke: #e2e1d0;
+$pue: #ef8e1c;
+$wue: #779f2a;
+$hum: #627aad;
+$temp: #af89d3;
+$cream: #eeeddb;
+$blue: #3a5897;
+$keyline: #e5e5e5;
+$para: #7f7f7f;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// (Most CSS3 mixins are defined within Bourbon)
+
+@mixin cf {
+  &:before,
+  &:after {
+      content: " ";
+      display: table;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+@mixin row($border: 0) {
+  @include cf;
+  margin-left: -$gutter-width -$border;
+  @if ($border) {
+    margin-right: -$border;
+  }
+}
+
+@mixin column-base($c: 1) {
+  width: ($column_width * $c) + ($gutter-width * ($c - 1));
+  margin-left: $gutter-width;
+}
+
+@mixin column($c: 1) {
+  @include column-base($c);
+  float: left;
+}
+
+%graph-note {
+  font-size: 9px;
+  color: $opacity-dark;
+  position: absolute;
+  text-shadow: 0 -1px 2px #fff;
+  pointer-events: none;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Icons
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.icon {
+  text-indent: -9999px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  background: url('/images/sprite.png') no-repeat 0 0;
+}
+
+.icon--plus {
+  @extend .icon;
+  background-position: 0 -25px;
+}
+
+.icon--close {
+  @extend .icon;
+  background-position: 0 0;
+}
+
+.icon--info {
+  @extend .icon;
+  background-position: 0 -50px;
+  opacity: 0.2;
+  width: 12px;
+  height: 12px;
+}
+
+.icon--down-arrow {
+  @extend .icon;
+  background-position: 0 -75px;
+  width: 13px;
+  height: 9px;
+  opacity: 0.25;
+}
+
+.icon--up-arrow {
+  @extend .icon;
+  background-position: 0 -100px;
+  width: 13px;
+  height: 9px;
+  opacity: 0.5;
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Global
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+svg, svg * {
+  shape-rendering: geometricPrecision;
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+body {
+  color: rgb(0,0,0);
+  font-family: 'lucida grande', tahoma, verdana, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p, ul, ol {
+  margin: 19.25px 0 0;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+p, article ul, article h5 {
+  color: $para;
+}
+
+article ul {
+  padding-left: 1.2em;
+}
+
+article li {
+  margin-top: 0.6em;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+nav ul, nav ol {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Containers
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.container {
+  width: $container;
+  overflow: hidden;
+  padding-top: $surround;
+  margin: 0 auto;
+}
+
+.container__inner {
+  margin: 0 auto;
+}
+
+.divided-area-container {
+  padding-bottom: $vertical-large;
+}
+
+.divided-area {
+  border-top: 1px solid $keyline;
+  margin-top: $vertical-large;
+  padding-top: $vertical-large;
+  &:first-child:not(.override-first) {
+    border-top: 0;
+    margin-top: 0;
+  }
+}
+
+.row {
+  @include row;
+}
+
+.col--aux {
+  @include column;
+}
+
+.col--main {
+  @include column(4);
+}
+
+.col--full {
+  @include column(5);
+}
+
+.col--split {
+  float: left;
+  width: 50%;
+}
+
+%inline-column {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-right: -4px; // Remove inline-block whitespace
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Smaller components
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.item-label-note {
+  color: $opacity-light;
+}
+
+.large-chars {
+  font-size: 68px;
+  letter-spacing: -2px;
+  line-height: 1.2;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: $opacity-mid;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  .percent {
+    font-size: 29px;
+    line-height: 1.5;
+    vertical-align: top;
+    margin-left: 3px;
+  }
+}
+
+.block-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Page header
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.page-header {
+  @include row;
+  margin-top: 3px;
+}
+
+.page-header__title {
+  font-weight: normal;
+  @extend %inline-column;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  @include column-base(3);
+}
+
+.page-header__label {
+  @include column-base(2);
+  @extend %inline-column;
+  text-align: right;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Hero Feature (which can contain a wheel graph and metric displays)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.hero-feature {
+  @include cf;
+  border: 1px solid #e2e1d0;
+  border-radius: $border-radius;
+  padding: ($surround - 1px) 0;
+  background: $cream;
+  margin-top: $vertical;
+}
+
+.hero-feature__row {
+  @include row($border: 1px);
+  margin-top: $vertical;
+  margin-bottom: $vertical;
+}
+
+.hero-feature__main {
+  @include column(3);
+  min-height: 1px;
+  html.no-svg & {
+    display: none;
+  }
+}
+
+.hero-feature__aux {
+  @include column(2);
+  html.no-svg & {
+    @include column(5);
+    padding-left: 18px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Wheel Graph
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.wheel-graph-container {
+  width: 445px;
+  margin: auto;
+}
+
+.wheel-graph {
+  height: 445px;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.wheel-graph-event-cloak {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: inherit;
+  margin: auto;
+  z-index: 2;
+}
+
+.wheel-graph__donut path {
+  fill: #fff;
+  stroke: $stroke;
+}
+
+.wheel-graph__donut--event {
+  pointer-events: visibleFill;
+  fill: none;
+  stroke: none;
+  visibility: visible;
+}
+
+.wheel-graph__hour-stroke {
+  stroke: #f6f6ed;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.wheel-graph__line-group {
+  @include transition(opacity 0.3s ease);
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+@mixin data-line {
+  fill: none;
+  stroke: #000;
+  &.humidity {
+    stroke: $hum;
+  }
+  &.wue {
+    stroke: $wue;
+  }
+  &.pue {
+    stroke: $pue;
+  }
+  &.temperature {
+    stroke: $temp;
+  }
+}
+
+.wheel-graph__line {
+  @include data-line;
+  stroke-width: 2px;
+  display: none;
+}
+
+.wheel-graph__line-trail {
+  @include data-line;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.wheel-graph__guideline {
+  fill: none;
+  stroke: #d2d2d2;
+}
+
+.wheel-graph__handle {
+  stroke-width: 5px;
+  fill: #fff;
+  opacity: 0;
+  @include transition(opacity 1s ease);
+  .wheel-graph-container:hover &,
+  .histogram-group__event-cloak:hover~.histogram & {
+    opacity: 1;
+  }
+  &.humidity {
+    stroke: $hum;
+  }
+  &.wue {
+    stroke: $wue;
+  }
+  &.pue {
+    stroke: $pue;
+  }
+  &.temperature {
+    stroke: $temp;
+  }
+  &.center-handle {
+    fill: #7f7f7f;
+    opacity: 1 !important;
+  }
+  &.hidden {
+    @include transition(none);
+    opacity: 0 !important;
+  }
+}
+
+.wheel-graph__note {
+  @extend %graph-note;
+  text-align: right;
+  width: 200px;
+  left: 50%;
+  margin-left: -200px;
+  padding-right: 5px;
+  display: none;
+  &.outer {
+    top: 5px;
+  }
+  &.inner {
+    top: 137px;
+  }
+  .hero-feature & {
+    opacity: 0;
+    display: block;
+    @include transition(opacity 0.5s ease);
+  }
+  .hero-feature.item-selected &,
+  .hero-feature.item-highlighted & {
+    opacity: 1;
+  }
+  &.mouse {
+    width: auto;
+    margin-left: 10px; margin-top: -10px;
+    padding-right: 0;
+    text-align: left;
+    opacity: 0;
+    @include transition(opacity 1s ease);
+    .wheel-graph-event-cloak:hover~.wheel-graph & {
+      opacity: 1;
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Delay segments (SVG paths)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.delay-segment {
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.delay-segment__arc {
+  fill: #f7f7f7;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Clock display (used inside wheel graph)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.clock-display {
+  position: absolute;
+  width: 139px;
+  height: 139px;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+  text-align: center;
+  border: 3px solid #7f7f7f;
+  border-radius: 999px;
+}
+
+.clock-display__mid {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.clock-display__inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.clock-display__value {
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: $opacity-mid;
+  color: #77766d;
+  margin-top: 8px;
+}
+
+.clock-display__aux {
+  letter-spacing: -1px;
+  color: #9b9a8f;
+}
+
+.clock-display__context {
+  text-transform: uppercase;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Metric displays
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.metric-display-group {
+  margin-right: 16px;
+  margin-top: -$vertical;
+  .metric-display {
+    margin-top: $vertical;
+    html.no-svg & {
+      float: left;
+      width: 50%;
+      height: 224px;
+    }
+  }
+  .item-selected & {
+    .metric-display {
+      &.current {
+        height: 274px;
+        background: rgba(#fff, 1);
+        .metric-display__text {
+          opacity: 1;
+        }
+        .metric-display__icon {
+          opacity: 0.5;
+          @extend .icon--up-arrow;
+        }
+        .metric-display__label {
+          .icon {
+            display: none;
+          }
+        }
+        .metric-display__value {
+          margin-bottom: 8px;
+        }
+        .hide-on-select {
+          display: none;
+        }
+      }
+      &:not(.current) {
+        height: 42px;
+        .metric-display__label {
+          width: 100%;
+          h4, .item-label-note {
+            display: inline;
+          }
+          .icon {
+            display: none;
+          }
+        }
+        .metric-display__value {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.metric-display {
+  border-left: 5px solid #8e8e8e;
+  height: 100px;
+  padding: $surround;
+  position: relative;
+  @include transition(background-color 0.5s ease, height 0.3s ease);
+  overflow: hidden;
+  &:hover {
+    background: rgba(#fff, 0.5);
+    cursor: pointer;
+    .metric-display__icon {
+      opacity: 0.5;
+    }
+  }
+  &.pue {
+    border-left-color: $pue;
+  }
+  &.wue {
+    border-left-color: $wue;
+  }
+  &.humidity {
+    border-left-color: $hum;
+  }
+  &.temperature {
+    border-left-color: $temp;
+  }
+}
+
+.metric-display__icon {
+  pointer-events: none;
+  margin-left: 5px;
+  @include transition(opacity 0.5s ease);
+  html.no-svg & {
+    display: none !important;
+  }
+}
+
+.metric-display__label {
+  float: left;
+  width: 90px;
+  margin-top: -4px;
+  html.no-svg & {
+    padding-bottom: 15px;
+  }
+}
+
+.metric-display__value {
+  float: right;
+  text-align: right;
+  margin-top: -8px;
+  .large-chars {
+    line-height: 1;
+  }
+  .item-label-note {
+    position: absolute;
+    opacity: 1;
+    @include transition(opacity 0.5s ease);
+    bottom: $surround - 5px; right: $surround; // Match .metric-display padding
+  }
+}
+
+.metric-display__text {
+  font-size: 11px;
+  line-height: 18px;
+  opacity: 0;
+  overflow: auto;
+  padding-right: 16px;
+  clear: both;
+  padding-top: 15px;
+  border-top: 1px solid $keyline;
+  @include transition(opacity 0.5s ease);
+  p+p {
+    margin-top: 8px;
+  }
+  html.no-svg & {
+    opacity: 1;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Corner label
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.corner-label-holder {
+  position: relative;
+}
+
+.corner-label {
+  position: absolute;
+  top: 0; left: $surround;
+  color: $opacity-dark;
+}
+
+.corner-label--bottom {
+  @extend .corner-label;
+  top: auto;
+  bottom: -5px; // Baseline
+  color: $opacity-light;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Boxout
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.hero-feature__row--boxout {
+  @extend .hero-feature__row;
+  margin-bottom: 0;
+}
+
+.boxout {
+  border-top: 1px solid rgba(#000, 0.1);
+  border-radius: $border-radius;
+  margin: 0 18px 0 34px;
+  overflow: hidden;
+}
+
+.boxout__intro-col {
+  @include column(3);
+  padding: 14px 14px 0 0;
+  width: 481px;
+  p {
+    color: $opacity-light;
+    strong {
+      font-weight: normal;
+      color: $opacity-mid;
+    }
+  }
+}
+
+.boxout__data-col {
+  @include column;
+  width: 146px;
+  margin-left: 0;
+  border-left: 1px solid rgba(#000, 0.1);
+  padding: 14px 14px 0;
+  margin-bottom: -100px; padding-bottom: 100px; // Equal column effect
+  h4 {
+    color: $opacity-light;
+  }
+  .large-chars {
+    font-size: 38px;
+    line-height: 1;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Date range navigation
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.date-range-nav {
+  li {
+    border-bottom: 1px solid rgba(#cfcfcf, 0.5);;
+    position: relative;
+    line-height: 45px;
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: rgba(#cfcfcf, 0.5);
+    }
+  }
+  a {
+    display: block;
+    &.current {
+      background: #eeeddb;
+      padding-left: 10px;
+      border-right: 5px solid #c4c4b5;
+      cursor: default;
+      color: inherit;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Histogram Group
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.col--main--histograms {
+  @extend .col--main;
+  width: 642px - 18px;
+}
+
+.histogram-group {
+  position: relative; // For __event-cloak
+  .histogram+.histogram {
+    margin-top: $vertical;
+  }
+}
+
+.histogram-group__event-cloak {
+  position: absolute;
+  top: 0; right: -18px; bottom: 0; left: -18px;
+  z-index: 1;
+  background: rgba(#000, 0);
+}
+
+.event-cloak__listing {
+  position: absolute;
+  left: 0; right: 0;
+  top: 0;
+  height: 122px;
+  background: rgba(#000, 0);
+  &+.event-cloak__listing {
+    top: 142px;
+    &+.event-cloak__listing {
+      top: 284px;
+      &+.event-cloak__listing {
+        top: 426px;
+      }
+    }
+  }
+}
+
+.event-cloak__svg {
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.histogram-group__footer {
+  margin-top: $vertical;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    height: 5px;
+    background: $keyline;
+    top: 0; right: 0; left: 0;
+  }
+}
+
+.handle {
+  display: none;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Histograms
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.histogram {
+  border-bottom: 2px solid $keyline;
+  border-left: 2px solid $keyline;
+  position: relative; // For histogram__title
+  pointer-events: none;
+}
+
+.histogram__title {
+  pointer-events: none;
+  line-height: 45px;
+  position: absolute;
+  top: 0; left: 0;
+  text-shadow: 0 -1px 0 #fff;
+  padding: 13px;
+  line-height: 1;
+  @include transition(opacity 1s ease);
+  .histogram-group__event-cloak:hover~.histogram &.dim {
+    opacity: 0.1;
+  }
+}
+
+.histogram__inner {
+  height: 120px;
+  margin: 0 -18px;
+}
+
+.histogram__guideline {
+  fill: none;
+  stroke: #cccccc;
+  stroke-width: 1px;
+  shape-rendering: crispEdges !important;
+  opacity: 0;
+  @include transition(opacity 1s ease);
+  .histogram-group__event-cloak:hover~.histogram & {
+    opacity: 1;
+  }
+}
+
+.histogram__value-label {
+  text-shadow: 0 -1px 0 #fff;
+  position: absolute;
+  left: 0; top: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  @include transition(opacity 1s ease);
+  .histogram-group__event-cloak:hover~.histogram & {
+    opacity: 1;
+  }
+  .small-unit {
+    font-size: 8px;
+  }
+  &.hidden {
+    opacity: 0 !important;
+    @include transition(none);
+  }
+}
+
+.histogram__range-line {
+  stroke: none;
+  fill: #000;
+  opacity: 0.25;
+  &:first-child {
+    display: none;
+  }
+  .pue & {
+    fill: $pue;
+  }
+  .wue & {
+    fill: $wue;
+  }
+  .humidity & {
+    fill: $hum;
+  }
+  .temperature & {
+    fill: $temp;
+  }
+}
+
+.histogram__data-line {
+  @include data-line;
+  stroke-width: 1px;
+}
+
+.histogram__mouse-label {
+  @extend %graph-note;
+  opacity: 0;
+  @include transition(opacity 1s ease);
+  .histogram.hover & {
+    opacity: 1;
+  }
+  &.hidden {
+    opacity: 0 !important;
+    @include transition(none);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Footer state
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.footer-state {
+  position: relative;
+  height: 42px;
+  line-height: 42px;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Histogram Date label (footer state)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.histogram-date-label {
+  display: none;
+  color: #7f7f7f;
+  .histogram-group__event-cloak:hover~.histogram-group__footer & {
+    display: block;
+    &+.histogram-split-labels {
+      display: none;
+    }
+  }
+}
+
+.histogram-date-label__inner {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  padding-left: 15px;
+  white-space: nowrap;
+  &.inverted {
+    padding-left: 0;
+    padding-right: 15px;
+    .histogram-date-label__keyline {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+.histogram-date-label__keyline {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  top: 0; bottom: 0;
+  background: #ccc;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Split labels
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.histogram-split-labels__label {
+  position: absolute;
+  top: 0;
+  border-left: 1px solid #ddd;
+  padding-left: 16px;
+  color: #7f7f7f;
+  font-size: 10px;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Background axes
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.background-axis-line {
+  stroke: #f2f2f2;
+  shape-rendering: crispEdges !important;
+}
+
+.background-axis-range-label {
+  @extend %graph-note;
+  right: 0;
+  &.bottom {
+    margin-top: -12px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Interval icon
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#processing-msg {
+  display: none;
+}
+
+.interval-icon {
+  margin-top: 10px;
+}
+
+.interval-icon__arc {
+  fill: #000;
+  opacity: 0.1;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Support message
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+html.no-svg .svg-only {
+  display: none;
+}
+
+.support-message {
+  margin: $surround; margin-top: 0;
+  border: 1px solid rgba(#000, 0.1);
+  padding: 10px;
+  border-radius: $border-radius;
+  background: rgba(#fff, 0.2);
+  display: none;
+  html.no-svg & {
+    display: block;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// FAQ
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.divided-area--faq {
+  @extend .divided-area;
+  border: 1px solid #e2e1d0;
+  border-radius: $border-radius;
+  padding: ($surround - 1px);
+  background: $cream;
+  &:first-child {
+    margin-top: 20px;
+  }
+  .col--aux {
+    width: 177px;
+  }
+  .col--main {
+    background: #fff;
+    padding: ($surround - 1px);
+    border: 1px solid #e4e3d3;
+    width: 580px;
+  }
+  .metric-display {
+    cursor: default;
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.divided-area--faq-footer {
+  @extend .divided-area;
+  text-align: center;
+  padding-bottom: $surround;
+}
