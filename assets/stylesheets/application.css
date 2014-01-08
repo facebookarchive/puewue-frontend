@@ -2,16 +2,16 @@
   font-size: 9px;
   color: rgba(0, 0, 0, 0.7);
   position: absolute;
-  text-shadow: 0 -1px 2px #fff;
+  text-shadow: 0 -1px 2px white;
   pointer-events: none; }
 
-.icon, .icon--plus, .icon--close, .icon--info, .icon--down-arrow, .icon--up-arrow, .item-selected .metric-display-group .metric-display.current .metric-display__icon {
+.icon, .icon--plus, .icon--close, .icon--info, .icon--down-arrow, .icon--up-arrow {
   text-indent: -9999px;
   display: inline-block;
   vertical-align: middle;
   width: 10px;
   height: 10px;
-  background: url("../images/sprite.png") no-repeat 0 0; }
+  background: url('../images/sprite.png') no-repeat 0 0; }
 
 .icon--plus {
   background-position: 0 -25px; }
@@ -104,13 +104,13 @@ nav ul, nav ol {
   border-top: 1px solid #e5e5e5;
   margin-top: 30px;
   padding-top: 30px; }
-  .divided-area:first-child:not(.override-first), .divided-area--faq:first-child:not(.override-first), .divided-area--faq-footer:first-child:not(.override-first) {
+  .divided-area:first-child:not(.override-first) {
     border-top: 0;
     margin-top: 0; }
 
 .row {
   margin-left: -18px;
-  margin-right: 0; }
+  margin-right: -0; }
   .row:before, .row:after {
     content: " ";
     display: table; }
@@ -164,7 +164,7 @@ nav ul, nav ol {
 
 .page-header {
   margin-left: -18px;
-  margin-right: 0;
+  margin-right: -0;
   margin-top: 3px; }
   .page-header:before, .page-header:after {
     content: " ";
@@ -202,10 +202,10 @@ nav ul, nav ol {
   margin-right: -1px;
   margin-top: 20px;
   margin-bottom: 20px; }
-  .hero-feature__row:before, .hero-feature__row--boxout:before, .hero-feature__row:after, .hero-feature__row--boxout:after {
+  .hero-feature__row:before, .hero-feature__row:after {
     content: " ";
     display: table; }
-  .hero-feature__row:after, .hero-feature__row--boxout:after {
+  .hero-feature__row:after {
     clear: both; }
 
 .hero-feature__main {
@@ -247,7 +247,7 @@ nav ul, nav ol {
   z-index: 2; }
 
 .wheel-graph__donut path {
-  fill: #fff;
+  fill: white;
   stroke: #e2e1d0; }
 
 .wheel-graph__donut--event {
@@ -264,15 +264,13 @@ nav ul, nav ol {
 .wheel-graph__line-group {
   -webkit-transition: opacity 0.3s ease;
   -moz-transition: opacity 0.3s ease;
-  -ms-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease; }
   .wheel-graph__line-group.hidden {
     opacity: 0; }
 
 .wheel-graph__line {
   fill: none;
-  stroke: #000;
+  stroke: black;
   stroke-width: 2px;
   display: none; }
   .wheel-graph__line.humidity {
@@ -286,7 +284,7 @@ nav ul, nav ol {
 
 .wheel-graph__line-trail {
   fill: none;
-  stroke: #000;
+  stroke: black;
   stroke-linecap: round;
   stroke-linejoin: round; }
   .wheel-graph__line-trail.humidity {
@@ -306,12 +304,10 @@ nav ul, nav ol {
 
 .wheel-graph__handle {
   stroke-width: 5px;
-  fill: #fff;
+  fill: white;
   opacity: 0;
   -webkit-transition: opacity 1s ease;
   -moz-transition: opacity 1s ease;
-  -ms-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
   transition: opacity 1s ease; }
   .wheel-graph-container:hover .wheel-graph__handle, .histogram-group__event-cloak:hover ~ .histogram .wheel-graph__handle {
     opacity: 1; }
@@ -329,8 +325,6 @@ nav ul, nav ol {
   .wheel-graph__handle.hidden {
     -webkit-transition: none;
     -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
     transition: none;
     opacity: 0 !important; }
 
@@ -350,8 +344,6 @@ nav ul, nav ol {
     display: block;
     -webkit-transition: opacity 0.5s ease;
     -moz-transition: opacity 0.5s ease;
-    -ms-transition: opacity 0.5s ease;
-    -o-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease; }
   .hero-feature.item-selected .wheel-graph__note, .hero-feature.item-highlighted .wheel-graph__note {
     opacity: 1; }
@@ -364,8 +356,6 @@ nav ul, nav ol {
     opacity: 0;
     -webkit-transition: opacity 1s ease;
     -moz-transition: opacity 1s ease;
-    -ms-transition: opacity 1s ease;
-    -o-transition: opacity 1s ease;
     transition: opacity 1s ease; }
     .wheel-graph-event-cloak:hover ~ .wheel-graph .wheel-graph__note.mouse {
       opacity: 1; }
@@ -431,7 +421,7 @@ nav ul, nav ol {
       opacity: 1; }
     .item-selected .metric-display-group .metric-display.current .metric-display__icon {
       opacity: 0.5; }
-    .item-selected .metric-display-group .metric-display.current .metric-display__label .icon, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--plus, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--close, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--info, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--down-arrow, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--up-arrow, .item-selected .metric-display-group .metric-display.current .metric-display__label .metric-display__icon {
+    .item-selected .metric-display-group .metric-display.current .metric-display__label .icon, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--plus, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--close, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--info, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--down-arrow, .item-selected .metric-display-group .metric-display.current .metric-display__label .icon--up-arrow {
       display: none; }
     .item-selected .metric-display-group .metric-display.current .metric-display__value {
       margin-bottom: 8px; }
@@ -443,7 +433,7 @@ nav ul, nav ol {
       width: 100%; }
       .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label h4, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .item-label-note {
         display: inline; }
-      .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--plus, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--close, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--info, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--down-arrow, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--up-arrow, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .metric-display.current .metric-display__icon, .item-selected .metric-display-group .metric-display.current .metric-display:not(.current) .metric-display__label .metric-display__icon {
+      .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--plus, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--close, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--info, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--down-arrow, .item-selected .metric-display-group .metric-display:not(.current) .metric-display__label .icon--up-arrow {
         display: none; }
     .item-selected .metric-display-group .metric-display:not(.current) .metric-display__value {
       display: none; }
@@ -455,8 +445,6 @@ nav ul, nav ol {
   position: relative;
   -webkit-transition: background-color 0.5s ease, height 0.3s ease;
   -moz-transition: background-color 0.5s ease, height 0.3s ease;
-  -ms-transition: background-color 0.5s ease, height 0.3s ease;
-  -o-transition: background-color 0.5s ease, height 0.3s ease;
   transition: background-color 0.5s ease, height 0.3s ease;
   overflow: hidden; }
   .metric-display:hover {
@@ -478,8 +466,6 @@ nav ul, nav ol {
   margin-left: 5px;
   -webkit-transition: opacity 0.5s ease;
   -moz-transition: opacity 0.5s ease;
-  -ms-transition: opacity 0.5s ease;
-  -o-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease; }
   html.no-svg .metric-display__icon {
     display: none !important; }
@@ -502,8 +488,6 @@ nav ul, nav ol {
     opacity: 1;
     -webkit-transition: opacity 0.5s ease;
     -moz-transition: opacity 0.5s ease;
-    -ms-transition: opacity 0.5s ease;
-    -o-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
     bottom: 11px;
     right: 16px; }
@@ -519,8 +503,6 @@ nav ul, nav ol {
   border-top: 1px solid #e5e5e5;
   -webkit-transition: opacity 0.5s ease;
   -moz-transition: opacity 0.5s ease;
-  -ms-transition: opacity 0.5s ease;
-  -o-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease; }
   .metric-display__text p + p {
     margin-top: 8px; }
@@ -664,13 +646,11 @@ nav ul, nav ol {
   position: absolute;
   top: 0;
   left: 0;
-  text-shadow: 0 -1px 0 #fff;
+  text-shadow: 0 -1px 0 white;
   padding: 13px;
   line-height: 1;
   -webkit-transition: opacity 1s ease;
   -moz-transition: opacity 1s ease;
-  -ms-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
   transition: opacity 1s ease; }
   .histogram-group__event-cloak:hover ~ .histogram .histogram__title.dim {
     opacity: 0.1; }
@@ -687,14 +667,12 @@ nav ul, nav ol {
   opacity: 0;
   -webkit-transition: opacity 1s ease;
   -moz-transition: opacity 1s ease;
-  -ms-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
   transition: opacity 1s ease; }
   .histogram-group__event-cloak:hover ~ .histogram .histogram__guideline {
     opacity: 1; }
 
 .histogram__value-label {
-  text-shadow: 0 -1px 0 #fff;
+  text-shadow: 0 -1px 0 white;
   position: absolute;
   left: 0;
   top: 0;
@@ -703,8 +681,6 @@ nav ul, nav ol {
   opacity: 0;
   -webkit-transition: opacity 1s ease;
   -moz-transition: opacity 1s ease;
-  -ms-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
   transition: opacity 1s ease; }
   .histogram-group__event-cloak:hover ~ .histogram .histogram__value-label {
     opacity: 1; }
@@ -714,13 +690,11 @@ nav ul, nav ol {
     opacity: 0 !important;
     -webkit-transition: none;
     -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
     transition: none; }
 
 .histogram__range-line {
   stroke: none;
-  fill: #000;
+  fill: black;
   opacity: 0.25; }
   .histogram__range-line:first-child {
     display: none; }
@@ -735,7 +709,7 @@ nav ul, nav ol {
 
 .histogram__data-line {
   fill: none;
-  stroke: #000;
+  stroke: black;
   stroke-width: 1px; }
   .histogram__data-line.humidity {
     stroke: #627aad; }
@@ -750,8 +724,6 @@ nav ul, nav ol {
   opacity: 0;
   -webkit-transition: opacity 1s ease;
   -moz-transition: opacity 1s ease;
-  -ms-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
   transition: opacity 1s ease; }
   .histogram.hover .histogram__mouse-label {
     opacity: 1; }
@@ -759,8 +731,6 @@ nav ul, nav ol {
     opacity: 0 !important;
     -webkit-transition: none;
     -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
     transition: none; }
 
 .footer-state {
@@ -795,12 +765,12 @@ nav ul, nav ol {
   width: 1px;
   top: 0;
   bottom: 0;
-  background: #ccc; }
+  background: #cccccc; }
 
 .histogram-split-labels__label {
   position: absolute;
   top: 0;
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #dddddd;
   padding-left: 16px;
   color: #7f7f7f;
   font-size: 10px; }
@@ -821,7 +791,7 @@ nav ul, nav ol {
   margin-top: 10px; }
 
 .interval-icon__arc {
-  fill: #000;
+  fill: black;
   opacity: 0.1; }
 
 html.no-svg .svg-only {
@@ -848,7 +818,7 @@ html.no-svg .svg-only {
   .divided-area--faq .col--aux {
     width: 177px; }
   .divided-area--faq .col--main, .divided-area--faq .col--main--histograms {
-    background: #fff;
+    background: white;
     padding: 15px;
     border: 1px solid #e4e3d3;
     width: 580px; }

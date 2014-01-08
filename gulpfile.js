@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var gzip = require('gulp-gzip');
 var jshint = require('gulp-jshint');
+var sass = require('gulp-sass');
 
 gulp.task('check', function() {
 	gulp.src(['assets/javascripts/**', '!assets/javascripts/graph_components/class.js'])
@@ -20,6 +21,14 @@ gulp.task('dashboard', function() {
 	}))
 	.pipe(concat('dashboard.js'))
 	.pipe(gulp.dest('./build'))
+});
+
+gulp.task('sass', function () {
+	gulp.src('./assets/stylesheets/application.scss')
+	.pipe(sass({
+		includePaths: require('node-bourbon').includePaths
+	}))
+	.pipe(gulp.dest('./assets/stylesheets'));
 });
 
 gulp.task('scripts', ['check', 'dashboard'], function() {
@@ -45,6 +54,7 @@ gulp.task('scripts', ['check', 'dashboard'], function() {
 });
 
 gulp.task('default', function() {
+	gulp.run('sass');
 	gulp.run('scripts');
 	gulp.watch('assets/javascripts/**/*.js', function() {
 		gulp.run('scripts');

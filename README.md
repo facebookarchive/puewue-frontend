@@ -8,8 +8,9 @@
 
 ## Getting Started
 
-1. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**) inside of `assets/javascripts/application.js`
-2. Test your connect with a local HTTP server, e.g. `SimpleHTTPServer`.
+1. Install dependencies by running `npm install && bower install` from your project's root
+2. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**) inside of `assets/javascripts/application.js`
+3. Test your connect with a local HTTP server, e.g. `SimpleHTTPServer`.
 
 ## Configuration
 

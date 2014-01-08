@@ -1,4 +1,4 @@
-@import "bourbon/bourbon";
+@import "bourbon";
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Dimensions
@@ -58,7 +58,7 @@ $para: #7f7f7f;
 }
 
 @mixin column-base($c: 1) {
-  width: ($column_width * $c) + ($gutter-width * ($c - 1));
+  width: ($column-width * $c) + ($gutter-width * ($c - 1));
   margin-left: $gutter-width;
 }
 
