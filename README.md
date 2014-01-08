@@ -153,10 +153,3 @@ Power Dashboard has the following dependencies:
 + Modernizr — browser feature detection
 + jQuery tinypubsub — a global publish/subscribe pattern for some components
 
-## Todo
-
-+ Remove throttling from the open source version
-+ Look into reducing depedencies
-+ Specificy the timestamp in the API notes
-+ Write about theming
-+ Test disabling both WheelGraph and Histograms
