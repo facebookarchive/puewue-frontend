@@ -1,4 +1,5 @@
-//= require ./data_line
+var DataLine = require('./data_line');
+var Util = require('./util');
 
 var RadialLine = DataLine.extend({
   init: function(options) {
@@ -37,3 +38,5 @@ var RadialLine = DataLine.extend({
     return Util.toDegrees(angle);
   }
 });
+
+module.exports = RadialLine;

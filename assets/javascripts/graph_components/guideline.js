@@ -1,4 +1,4 @@
-//= require ./graph_component
+var GraphComponent = require('./graph_component');
 
 /**
  * Draws a projected line from an origin
@@ -96,3 +96,5 @@ var Guideline = GraphComponent.extend({
     }
   }
 });
+
+module.exports = Guideline;

@@ -1,4 +1,4 @@
-//= require ./graph_component
+var GraphComponent = require('./graph_component');
 
 var Handle = GraphComponent.extend({
   defaults: {
@@ -78,3 +78,5 @@ var Handle = GraphComponent.extend({
     }
   }
 });
+
+module.exports = Handle;

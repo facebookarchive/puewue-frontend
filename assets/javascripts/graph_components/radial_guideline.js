@@ -1,4 +1,5 @@
-//= require ./graph_component
+var GraphComponent = require('./graph_component');
+var Util = require('./util');
 
 /**
  * Draws a projected line from an origin
@@ -84,3 +85,5 @@ var RadialGuideline = GraphComponent.extend({
     return [p1, p2];
   }
 });
+
+module.exports = RadialGuideline;

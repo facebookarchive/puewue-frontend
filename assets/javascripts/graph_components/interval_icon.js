@@ -1,3 +1,5 @@
+var Util = require('./util');
+
 var IntervalIcon = Class.extend({
   defaults: {
     $el: null,
@@ -101,3 +103,5 @@ var IntervalIcon = Class.extend({
     })(this);
   }
 });
+
+module.exports = IntervalIcon;

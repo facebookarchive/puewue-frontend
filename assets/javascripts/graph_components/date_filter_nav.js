@@ -29,3 +29,5 @@ var DateFilterNav = Class.extend({
     }
   }
 });
+
+module.exports = DateFilterNav;

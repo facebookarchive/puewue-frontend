@@ -1,4 +1,4 @@
-//= require ./graph_component
+var GraphComponent = require('./graph_component');
 
 var BackgroundAxis = GraphComponent.extend({
   defaults: {
@@ -77,3 +77,5 @@ var BackgroundAxis = GraphComponent.extend({
     }
   }
 });
+
+module.exports = BackgroundAxis;

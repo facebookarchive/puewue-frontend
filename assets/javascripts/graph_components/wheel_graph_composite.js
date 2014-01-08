@@ -1,3 +1,18 @@
+var GraphData = require('./graph_data');
+var Clock = require('./clock');
+var GraphBase = require('./graph_base');
+var RadialGuideline = require('./radial_guideline');
+var WheelGraphMetric = require('./wheel_graph_metric');
+var IntervalIcon = require('./interval_icon');
+var EventCloak = require('./event_cloak');
+var Donut = require('./donut');
+var Util = require('./util');
+
+// Backbone
+var MetricGroup = require('../backbone_components/metric_group');
+var MetricDisplayGroup = require('../backbone_components/metric_display_group');
+var ClockDisplay = require('../backbone_components/clock_display');
+
 /**
  * A place to hold all the wheel graph information for the current setup
  */
@@ -15,7 +30,6 @@ var WheelGraphComposite = Class.extend({
     this.metrics = this.config.metrics;
     this.wheelGraphMetrics = [ ];
     _.bindAll(this, 'draw');
-
 
     this.graphData = new GraphData({
       endpointAlias: this.config.endpointAlias,
@@ -203,3 +217,5 @@ var WheelGraphComposite = Class.extend({
 
   }
 });
+
+module.exports = WheelGraphComposite;

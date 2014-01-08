@@ -45,3 +45,5 @@ var Util = {
       return angle;
     }
 };
+
+module.exports = Util;

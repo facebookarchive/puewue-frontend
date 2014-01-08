@@ -26,3 +26,5 @@ var GraphBase = Class.extend({
       .attr("height", this.config.height);
   }
 });
+
+module.exports = GraphBase;

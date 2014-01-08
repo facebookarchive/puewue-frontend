@@ -155,3 +155,5 @@ var GraphData = Class.extend({
 
   }
 });
+
+module.exports = GraphData;

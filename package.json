@@ -1,0 +1,14 @@
+{
+	"name": "power-dashboard",
+	"dependencies": {
+		"browserify": "~3.19.1",
+		"browserify-shim": "~3.1.4",
+		"gulp-concat": "~2.1.7",
+		"gulp": "~3.2.4"
+	},
+	"browserify": {
+		"transform": ["browserify-shim"]
+	},
+	"browserify-shim": {
+	}
+}

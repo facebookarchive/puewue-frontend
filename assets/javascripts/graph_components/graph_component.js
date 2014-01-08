@@ -25,3 +25,5 @@ var GraphComponent = Class.extend({
     });
   }
 });
+
+module.exports = GraphComponent;

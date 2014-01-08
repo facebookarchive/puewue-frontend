@@ -1,3 +1,15 @@
+var RadialLine = require('./radial_line');
+var DelaySegment = require('./delay_segment');
+var LineTrail = require('./line_trail');
+var Handle = require('./handle');
+
+// Backbone
+var GroupedMetric = require('../backbone_components/grouped_metric');
+var DataLineView = require('../backbone_components/data_line_view');
+var TemperatureMetricDisplay = require('../backbone_components/temperature_metric_display');
+var PercentageMetricDisplay = require('../backbone_components/percentage_metric_display');
+var MetricDisplay = require('../backbone_components/metric_display');
+
 var WheelGraphMetric = Class.extend({
   defaults: {
     metric: null,
@@ -30,7 +42,7 @@ var WheelGraphMetric = Class.extend({
       clock: this.clock,
       model: this.model,
       metric: this.metric,
-      lineDataKey: 1 // @todo -- Work out why this has to be different to the other data lines
+      lineDataKey: 1
     });
 
     this.delaySegment = new DelaySegment({
@@ -98,3 +110,5 @@ var WheelGraphMetric = Class.extend({
 
   }
 });
+
+module.exports = WheelGraphMetric;

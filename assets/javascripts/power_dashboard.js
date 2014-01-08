@@ -1,3 +1,15 @@
+// PowerDashboard depedencies
+// var $ = require('../bower_components/jquery/jquery');
+// var _ = require('../bower_components/underscore/underscore', {expose: 'underscore'});
+// var Backbone = require('../bower_components/backbone/backbone');
+// var TWEEN = require('../bower_components/tweenjs/src/tween')
+// var Modernizr = require('../bower_components/modernizr/modernizr');
+// var d3 = require('../bower_components/d3/d3');
+// var Class = require('./graph_components/class');
+
+var WheelGraphComposite = require('./graph_components/wheel_graph_composite');
+var HistogramsComposite = require('./graph_components/histograms_composite');
+
 var PowerDashboard = Class.extend({
 	defaults: {
 		wheelGraphEndpointAlias: '24-hours',
@@ -7,7 +19,6 @@ var PowerDashboard = Class.extend({
 		metrics: null
 	},
 	init: function(options) {
-
 		var wheelGraph, histograms;
 
 		this.config = _.extend({ }, this.defaults, options);
@@ -46,3 +57,7 @@ var PowerDashboard = Class.extend({
 		});
 	}
 });
+
+window.PowerDashboard = PowerDashboard;
+
+exports = PowerDashboard;

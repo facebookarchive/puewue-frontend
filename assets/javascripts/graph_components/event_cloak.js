@@ -3,6 +3,8 @@
  * and provide a dedicated SVG element to attach to
  */
 
+var Util = require('./util');
+
 var EventCloak = Class.extend({
   defaults: {
     animate: false,
@@ -106,3 +108,5 @@ var EventCloak = Class.extend({
   }
 
 });
+
+module.exports = EventCloak;

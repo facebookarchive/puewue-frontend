@@ -2,6 +2,9 @@
  * Handle the logic and time scales for a wheel graph
  * based on an array of timestamps
  */
+
+var Util = require('./util');
+
 var Clock = Class.extend({
   defaults: {
     timestamps: [ ],
@@ -116,3 +119,5 @@ var Clock = Class.extend({
     return this;
   }
 });
+
+module.exports = Clock;

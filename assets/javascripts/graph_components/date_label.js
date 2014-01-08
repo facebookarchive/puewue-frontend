@@ -44,3 +44,5 @@ var DateLabel = Class.extend({
     });
   }
 });
+
+module.exports = DateLabel;

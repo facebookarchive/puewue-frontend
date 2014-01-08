@@ -1,3 +1,14 @@
+var GraphData = require('./graph_data');
+var Clock = require('./clock');
+var SplitLabels = require('./split_labels');
+var DateFilterNav = require('./date_filter_nav');
+var DateLabel = require('./date_label');
+var EventCloak = require('./event_cloak');
+var HistogramMetric = require('./histogram_metric');
+
+// Backbone
+var MetricGroup = require('../backbone_components/metric_group');
+
 var HistogramsComposite = Class.extend({
   defaults: {
     endpointAlias: null,
@@ -133,3 +144,5 @@ var HistogramsComposite = Class.extend({
     this.clock.setCurrentTimeFromAngle(0);
   }
 });
+
+module.exports = HistogramsComposite;

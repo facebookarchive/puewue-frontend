@@ -1,3 +1,5 @@
+var GraphComponent = require('./graph_component');
+
 var SplitLabels = GraphComponent.extend({
   defaults: {
     $el: null,
@@ -33,3 +35,5 @@ var SplitLabels = GraphComponent.extend({
     }
   }
 });
+
+module.exports = SplitLabels;

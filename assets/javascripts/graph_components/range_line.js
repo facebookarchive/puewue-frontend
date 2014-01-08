@@ -1,4 +1,4 @@
-//= require ./graph_component
+var GraphComponent = require('./graph_component');
 
 var RangeLine = GraphComponent.extend({
   defaults: {
@@ -109,3 +109,5 @@ var RangeLine = GraphComponent.extend({
     return scale;
   }
 });
+
+module.exports = RangeLine;

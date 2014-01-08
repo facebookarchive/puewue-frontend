@@ -1,4 +1,4 @@
-var MetricGroup = Backbone.Collection.extend();
+// var Backbone = require('../../bower_components/backbone/backbone');
 
 var GroupedMetric = Backbone.Model.extend({
   defaults: {
@@ -14,3 +14,5 @@ var GroupedMetric = Backbone.Model.extend({
     this.set('value', (prev + next) / 2);
   }
 });
+
+module.exports = GroupedMetric;

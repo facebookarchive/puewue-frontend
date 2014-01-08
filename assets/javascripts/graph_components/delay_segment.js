@@ -1,3 +1,5 @@
+var GraphComponent = require('./graph_component');
+
 var DelaySegment = GraphComponent.extend({
   defaults: {
     cy: null,
@@ -89,3 +91,5 @@ var DelaySegment = GraphComponent.extend({
 
   }
 });
+
+module.exports = DelaySegment;

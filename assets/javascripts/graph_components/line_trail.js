@@ -1,4 +1,4 @@
-//= require ./graph_component
+var GraphComponent = require('./graph_component');
 
 /**
  * Allows a variable stroke width, using the data that we already have available to us.
@@ -53,3 +53,5 @@ var LineTrail = GraphComponent.extend({
     return scale;
   }
 });
+
+module.exports = LineTrail;

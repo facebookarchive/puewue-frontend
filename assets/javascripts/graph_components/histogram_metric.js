@@ -1,3 +1,15 @@
+var Guideline = require('./guideline');
+var DataLine = require('./data_line');
+var BackgroundAxis = require('./background_axis');
+var RangeLine = require('./range_line');
+var DelaySegment = require('./delay_segment');
+var Handle = require('./handle');
+
+// Backbone
+var GroupedMetric = require('../backbone_components/grouped_metric');
+var DataLineView = require('../backbone_components/data_line_view');
+var HistogramMetricDisplay = require('../backbone_components/histogram_metric_display');
+
 var HistogramMetric = Class.extend({
   defaults: {
 
@@ -248,3 +260,5 @@ var HistogramMetric = Class.extend({
     this.delaySegment.draw();
   }
 });
+
+module.exports = HistogramMetric;

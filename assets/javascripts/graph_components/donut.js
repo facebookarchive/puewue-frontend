@@ -1,4 +1,4 @@
-//= require ./graph_component
+var GraphComponent = require('./graph_component');
 
 var Donut = GraphComponent.extend({
   defaults: {
@@ -54,3 +54,5 @@ var Donut = GraphComponent.extend({
     }
   }
 });
+
+module.exports = Donut;

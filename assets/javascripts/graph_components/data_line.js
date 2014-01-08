@@ -2,6 +2,8 @@
  * Draw a radial graph based on time & arbitary data
  */
 
+var Util = require('./util');
+
 var DataLine = Class.extend({
   defaults: {
     base: null,
@@ -285,3 +287,5 @@ var DataLine = Class.extend({
 
   }
 });
+
+module.exports = DataLine;
