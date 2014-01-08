@@ -155,6 +155,5 @@ Power Dashboard has the following dependencies:
 + Remove throttling from the open source version
 + Look into reducing depedencies
 + Specificy the timestamp in the API notes
-+ Script loader for PowerDashboard code.
 + Write about theming
 + Test disabling both WheelGraph and Histograms

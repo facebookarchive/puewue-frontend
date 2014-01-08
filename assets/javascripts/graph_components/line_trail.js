@@ -31,10 +31,10 @@ var LineTrail = GraphComponent.extend({
     .enter().append("svg:line")
       .attr("class", this.config.classes.line + ' ' + this.dataLine.config.alias)
       .attr("stroke-width", function(d) { return _this.strokeScale(d.dataValue.date); })
-      .attr('x1', function(d, i) { return d['x']; })
-      .attr('y1', function(d, i) { return d['y']; })
-      .attr('x2', function(d, i) { return _this.dataLine.pathDict[i+1] ?  _this.dataLine.pathDict[i+1]['x'] : 0; })
-      .attr('y2', function(d, i) { return _this.dataLine.pathDict[i+1] ?  _this.dataLine.pathDict[i+1]['y'] : 0; })
+      .attr('x1', function(d, i) { return d.x; })
+      .attr('y1', function(d, i) { return d.y; })
+      .attr('x2', function(d, i) { return _this.dataLine.pathDict[i+1] ?  _this.dataLine.pathDict[i+1].x : 0; })
+      .attr('y2', function(d, i) { return _this.dataLine.pathDict[i+1] ?  _this.dataLine.pathDict[i+1].y : 0; })
       .classed('hidden', function(d, i) {
         // Set the visibility, based on if the data is delayed.
         if(_this.dataLine.pathDict[i].dataValue.startDelay) {

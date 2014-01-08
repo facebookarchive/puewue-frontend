@@ -50,7 +50,7 @@ var GraphData = Class.extend({
 
         for(i in data) {
           i = parseInt(i, null);
-          if(!_this.config.throttle || (i % _this.config.throttle === 0) || (i === 0) || (i+1 === data.length)) {
+          if(!_this.config.throttle || (i % _this.config.throttle === 0) || i === 0 || i === null || (i+1 === data.length)) {
             _data.push(data[i]);
           }
         }

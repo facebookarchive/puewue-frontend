@@ -241,22 +241,38 @@ var HistogramMetric = Class.extend({
     // this.metric.data = this.data;
     this.metricPoints = this.data;
     this.delaySegment.metricPoints = this.metricPoints;
+    this.dataLine.points = this.metricPoints;
+    var _this = this;
+    this.dataLine.rangeData = [];
+    _.each(this.data, function(v,k) {
+      _this.dataLine.rangeData.push({
+        min: _minData[k].value,
+        max: _maxData[k].value,
+        value: v.value
+      });
+    });
   },
   draw: function() {
     this.refreshData();
 
     this.dataLine.setPoints(this.data);
-    this.rangeLine.setPoints(this.rangeData);
-    if(this.rangeData.length) {
-      this.dataLine.rangeData = this.rangeLine.data;
-    }
+    this.rangeLine.setPoints(this.rangeData); // Must be fired after dataLine
+
+
+    // this.dataLine.radiusScale.domain(this.dataLine.calculateDomain());
+    // this.rangeLine.radiusScale.domain(this.dataLine.calculateDomain());
+    // this.rangeLine.draw(true);
+    // this.dataLine.redraw(true);
+
     this.backgroundAxisY.setLines({
       scale: this.dataLine.radiusScale
     });
+
     this.backgroundAxisX.setLines({
       scale: this.clock.timeScale,
       steps: this.graphData.steps
     });
+
     this.delaySegment.draw();
   }
 });

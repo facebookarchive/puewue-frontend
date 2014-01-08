@@ -4,6 +4,16 @@
 
 var Util = require('./util');
 
+/**
+ * Draw a radial graph based on time & arbitary data
+ */
+
+var Util = require('./util');
+
+/**
+ * Draw a radial graph based on time & arbitary data
+ */
+
 var DataLine = Class.extend({
   defaults: {
     base: null,
@@ -20,10 +30,12 @@ var DataLine = Class.extend({
     }
   },
   init: function(options) {
-    this.channelId = _.uniqueId('channel_');
+
     this.config = _.extend({ }, this.defaults, options);
     _.bindAll(this, 'redraw', 'findClosestPoints');
+    this.channelId = _.uniqueId('channel_');
     this.base = this.config.base;
+
     this.clock = this.config.clock;
 
     this.metric = this.config.metric;
@@ -102,8 +114,17 @@ var DataLine = Class.extend({
   /**
    * Reset the scales and redraw the line
    */
-  redraw: function() {
+  redraw: function(removeFirst) {
     var _this = this;
+    removeFirst = removeFirst || false;
+
+    if(removeFirst && this.svg) {
+      this.group.remove();
+      this.svg.remove();
+      this.group = null;
+      this.svg = null;
+      this.attach();
+    }
 
     this.radiusScale = this.__createRadiusScale();
 
@@ -147,23 +168,29 @@ var DataLine = Class.extend({
       .attr('fill', 'red');
 
   },
-  /**
-   * Create a value scale
-   */
-  __createRadiusScale: function() {
-    var scale = d3.scale.linear();
-
+  calculateDomain: function() {
     var _domain = [ ];
 
     // Check if range data needs to be taken into account.
     if(this.rangeData) {
-      _domain = d3.extent(this.rangeData, function(d) { return d.y; });
+      var minOfMin = d3.min(this.rangeData, function(d) {
+        var arr = [d.value];
+        if(d.min !== false) arr.push(d.min);
+        if(d.max !== false) arr.push(d.max);
+        return d3.min(arr);
+      });
+      var maxOfMax = d3.max(this.rangeData, function(d) {
+        var arr = [d.value];
+        if(d.min !== false) arr.push(d.min);
+        if(d.max !== false) arr.push(d.max);
+        return d3.max(arr);
+      });
+      _domain = [minOfMin, maxOfMax];
     }
     else {
       _domain = d3.extent(this.points, function(d) { return d.value; });
     }
 
-    // Now make sure there's a big enough difference in the data.
     var _diff = Math.abs(_domain[0] - _domain[1]);
 
     if(typeof this.metric.minDomainDifference !== 'undefined' && _diff < this.metric.minDomainDifference) {
@@ -178,7 +205,17 @@ var DataLine = Class.extend({
       _domain[1] = _.max([_domain[1], this.metric.domain.max]);
     }
 
-    scale.domain(_domain);
+    return _domain;
+  },
+  /**
+   * Create a value scale
+   */
+  __createRadiusScale: function() {
+    var scale = d3.scale.linear();
+
+
+
+    scale.domain(this.calculateDomain());
     scale.range([this.config.min, this.config.max]);
     return scale;
   },
@@ -281,11 +318,13 @@ var DataLine = Class.extend({
           hide: this.nearestPrevPoint.delayed,
           model: this.model
         }]);
+
       }
 
     }
 
   }
 });
+
 
 module.exports = DataLine;

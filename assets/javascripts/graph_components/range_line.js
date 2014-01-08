@@ -67,38 +67,11 @@ var RangeLine = GraphComponent.extend({
     this.draw();
   },
   /**
-   * Create a value scale
-   * .... similar to data_line.js
+   * Create a value scale based on DataLine
    */
   __createRadiusScale: function() {
 
-    /*********** TAKEN FROM data_line.js ***********/
-
     var scale = d3.scale.linear();
-
-
-    // var _domain = [ ];
-
-    // .................. Apart from this bit!!
-    // _domain = d3.extent(this.data, function(d) { return d.value; });
-
-    // Now make sure there's a big enough difference in the data.
-     // Now make sure there's a big enough difference in the data.
-    // var _diff = Math.abs(_domain[0] - _domain[1]);
-
-    /*
-    if(typeof this.metric.minDomainDifference !== 'undefined' && _diff < this.metric.minDomainDifference) {
-      var _midpoint = _domain[0] + (_diff / 2);
-      _domain[0] = _midpoint - (this.metric.minDomainDifference / 2);
-      _domain[1] = _midpoint + (this.metric.minDomainDifference / 2);
-    }
-
-    // Apply any specific minimum boundaries if provided.
-    if(typeof this.metric.domain !== 'undefined') {
-      _domain[0] = _.min([_domain[0], this.metric.domain.min]);
-      _domain[1] = _.max([_domain[1], this.metric.domain.max]);
-    }
-    */
 
     var _domain = this.dataLine.radiusScale.domain();
     scale.domain(_domain);
