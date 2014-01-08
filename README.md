@@ -8,9 +8,11 @@
 
 ## Getting Started
 
-1. Install dependencies by running `npm install && bower install` from your project's root
-2. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**) inside of `assets/javascripts/application.js`
-3. Test your connect with a local HTTP server, e.g. `SimpleHTTPServer`.
+1. Install gulp globally by running `npm install -g gulp`
+2. Install dependencies by running `npm install && bower install` from your project's root
+3. Build the project by running `gulp` (or `gulp --production` for production use) from your project's root (outputs to `./build`, which is referenced in `index.html`)
+4. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**) inside of `assets/javascripts/application.js`
+5. Test your connect with a local HTTP server, e.g. `SimpleHTTPServer`.
 
 ## Configuration
 
