@@ -78,7 +78,7 @@ gulp.task('watch', function() {
 		'lib/stylesheets/**/*.scss',
 		'lib/stylesheets.sprite.png'
 	], function() {
-		gulp.run('scripts');
+		gulp.run('scripts-with-cleanup');
 	});
 });
 
