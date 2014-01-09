@@ -1,10 +1,10 @@
 {
   "name": "power-dashboard",
   "version": "0.0.1",
-  "main": "assets/javascripts/power_dashboard.js",
+  "main": "lib/javascripts/power_dashboard.js",
   "ignore": [
     "**/.*",
-    "assets/bower_components",
+    "bower_components",
     "build"
   ],
   "dependencies": {

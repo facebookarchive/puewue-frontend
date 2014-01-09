@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Power Dashboard</title>
-  <link rel="stylesheet" href="assets/stylesheets/normalize.css">
-  <link rel="stylesheet" href="assets/stylesheets/application.css">
+  <!--
+  You can swap bundle.js.css for dashboard.min.css for production use, but don't forget to compile using `gulp --production` first
+  -->
+  <link rel="stylesheet" href="../build/dashboard.css">
 </head>
 <body>
 
@@ -301,11 +303,11 @@
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <!--
-  You can swap bundle.js.gz for bundle.min.js.gz for production use, but don't forget to compile using `gulp --production` first
+  You can swap bundle.js for dashboard.min.js for production use, but don't forget to compile using `gulp --production` first
   -->
-  <script src="build/bundle.js.gz"></script>
+  <script src="../build/dashboard.js"></script>
 
-  <script src="assets/javascripts/application.js"></script>
+  <script src="application.js"></script>
 
 </body>
 </html>

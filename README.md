@@ -8,11 +8,11 @@
 
 ## Getting Started
 
-1. Install gulp globally by running `npm install -g gulp`
+1. Install gulp and Bower globally by running `npm install -g gulp && npm install -g bower`
 2. Install dependencies by running `npm install && bower install` from your project's root
-3. Build the project by running `gulp` (or `gulp --production` for production use) from your project's root (outputs to `./build`, which is referenced in `index.html`)
-4. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**) inside of `assets/javascripts/application.js`
-5. Test your connect with a local HTTP server, e.g. `SimpleHTTPServer`.
+3. Build the project by running `gulp` (or `gulp --production` for production use) from your project's root (outputs to `./build`, which is referenced in `demo/index.html`)
+4. Connect the dashboard to your API, by providing your server and metric settings (see **Configuration**) inside of `demo/application.js`
+5. Test your connect with a local HTTP server, e.g. `SimpleHTTPServer`
 
 ## Configuration
 
@@ -20,7 +20,7 @@
 
 All exposed configuration is sent when instantiating `PowerDashboard`.
 
-An example of how to instantiate this is available in `assets/javascripts/application.js`
+An example of how to instantiate this is available in `demo/application.js`
 
 ```
 {
@@ -70,7 +70,7 @@ An example of how to instantiate this is available in `assets/javascripts/applic
 	+ **metric="your-metric-alias"**: This should match PowerDashboard configuration
 	+ **view-mode="temperature"** or **data-view-mode="percentage"**: if one of your metrics is based around percentage or temperature, you can utilise these view modes to renders the values accordingly.
 
-*4 example histograms are available in the `index.html` boilerplate.*
+*4 example histograms are available in the `demo/index.html` boilerplate.*
 
 #### Date range filters
 + **DOM reference**: `.date-range-nav a`
@@ -81,7 +81,7 @@ An example of how to instantiate this is available in `assets/javascripts/applic
 	+ **range-value="12"**: An integer to compliment the data-unit, which is utilised by the graph to accurately render the data points
 	+ **steps="4"**: How many dividing lines should be on the histogram's x-axis
 
-*4 example date ranges are available in the `index.html` boilerplate.*
+*4 example date ranges are available in the `demo/index.html` boilerplate.*
 
 #### Histograms
 + **DOM reference**: '.histogram'
@@ -89,11 +89,7 @@ An example of how to instantiate this is available in `assets/javascripts/applic
 + **data- attributes**:
 	+ **metric="your-metric-alias"**: This should match PowerDashboard configuration
 
-*4 example histograms are available in the `index.html` boilerplate.*
-
-### Theming
-
-*@todo*
+*4 example histograms are available in the `demo/index.html` boilerplate.*
 
 ### API
 
