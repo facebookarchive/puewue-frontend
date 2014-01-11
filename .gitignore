@@ -1,7 +1,6 @@
 .DS_Store
 .sass-cache
-/assets/bower_components
+/bower_components
 /build
 /node_modules
 /tmp
-
