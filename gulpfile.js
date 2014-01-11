@@ -36,7 +36,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('images', function() {
-	return gulp.src(['./assets/stylesheets/sprite.png'])
+	return gulp.src(['./lib/stylesheets/sprite.png'])
 	.pipe(gulp.dest('./build'))
 });
 
@@ -81,4 +81,3 @@ gulp.task('watch', function() {
 		gulp.run('scripts-with-cleanup');
 	});
 });
-
