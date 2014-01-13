@@ -59,7 +59,8 @@ An example of how to instantiate this is available in `demo/application.js`
 		}
 		...
 	]
-}```
+}
+```
 
 ### Markup configuration
 
