@@ -22,7 +22,7 @@ All exposed configuration is sent when instantiating `PowerDashboard`.
 
 An example of how to instantiate this is available in `demo/application.js`
 
-```
+```javascript
 {
 	wheelGraphEndpointAlias: '24-hours', // See 'Configuration > API > URL structure' for more details
 	wheelGraph: true, // Set to 'false' to disable the wheel graph
@@ -108,7 +108,7 @@ URLs are concatenated on the client-side, using a combination of server settings
 ### Data point structure
 As a response from each endpoint (e.g. 1-year.json), Power Dashboard expects an JSON-formatted array of data point objects, ordered oldest-first. Each data point object expects the following data:
 
-```
+```javascript
 [
 		{
 		"timestamp": 1389087180000,
@@ -126,7 +126,7 @@ As a response from each endpoint (e.g. 1-year.json), Power Dashboard expects an 
 ### Average data ranges
 Histograms support average ranges, which show a transparent range line behind the average data, to show minimum and maximum values at a given time. To output this in the API, you format each data point object as the following:
 
-```
+```javascript
 {
 	"timestamp": 1389087180000,
 	"my_point": 1.5,
