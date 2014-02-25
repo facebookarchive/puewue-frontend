@@ -140,14 +140,16 @@ Histograms support average ranges, which show a transparent range line behind th
 
 Power Dashboard has the following dependencies:
 
-+ jQuery & Lo-Dash — DOM and JS utilities
++ jQuery & Underscore — DOM and JS utilities
 + D3 — SVG library, used for the graphs
 + Backbone — interfaces with the graph to display the 'current metrics', and control the Accordion UI.
 + Sylvester — vector calculation for graphs
 + Tween.js — tweening for the graphs, utilising window.requestAnimationFrame
 + Simple Inheritance — inheritance for JS objects, used for the app's components
 + Moment — data/time parsing
++ Normalize.css — a browser reset stylesheet
 + Modernizr — browser feature detection
++ Animation Frame — shim for requestAnimationFrame function
 + jQuery tinypubsub — a global publish/subscribe pattern for some components
 
 ## Licensing

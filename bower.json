@@ -16,6 +16,8 @@
     "moment": "~1.7.2",
     "tweenjs": "r9",
     "modernizr": "~2.6.2",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "animation-frame": "~0.1.6",
+    "normalize.css": "~2.1.0"
   }
 }

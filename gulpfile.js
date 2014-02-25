@@ -39,7 +39,7 @@ gulp.task('dashboard', function() {
 gulp.task('sass', function () {
 	var sassOpts = {includePaths: [require('node-bourbon').includePaths, './lib/stylesheets']};
 	if(gulp.env.production) sassOpts.outputStyle = 'compressed';
-	gulp.src(['./lib/stylesheets/application.scss'])
+	gulp.src(['./bower_components/normalize.css/normalize.css', './lib/stylesheets/application.scss'])
 	.pipe(sass(sassOpts))
 	.pipe(concat(gulp.env.production ? 'dashboard.min.css' : 'dashboard.css'))
 	.pipe(gulp.dest('./build'));
@@ -60,6 +60,7 @@ gulp.task('scripts', ['dashboard'], function() {
 		'bower_components/d3/d3.js',
 		'bower_components/tweenjs/src/Tween.js',
 		'bower_components/moment/moment.js',
+		'bower_components/animation-frame/AnimationFrame.js',
 		'bower_components/modernizr/modernizr.js',
 		'lib/javascripts/graph_components/class.js',
 		'tmp/dashboard.js'
