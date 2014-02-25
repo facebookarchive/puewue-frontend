@@ -150,3 +150,9 @@ Power Dashboard has the following dependencies:
 + Modernizr — browser feature detection
 + jQuery tinypubsub — a global publish/subscribe pattern for some components
 
+## Licensing
+
+The source code is licensed under the BSD-style license found in the
+[LICENSE](LICENSE) file in the root directory of this source tree. An
+additional grant of patent rights can be found in the [PATENTS](PATENTS) file
+in the same directory.
