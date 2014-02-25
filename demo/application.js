@@ -2,8 +2,8 @@ $(function() {
 
 	var dashboard = new PowerDashboard({
 		apiConfig: {
-			host: 'http://localhost:3000',
-			uriPrefix: 'timeline/example'
+			host: 'http://localhost:8000',
+			uriPrefix: 'demo/api'
 		},
 		metrics: [
 			{
