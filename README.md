@@ -6,6 +6,8 @@
 + Boilerplate HTML code for displaying these components on a web page
 + Configuration to bridge to a data center's JSON-based API (and not just limited to data centers)
 
+Use this in conjunction with the back-end project: https://github.com/facebook/puewue-backend
+
 ![Screenshot](https://github.com/facebook/puewue-frontend/blob/master/screenshot.png?raw=true)
 
 ## Getting Started
