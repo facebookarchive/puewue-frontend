@@ -6,6 +6,8 @@
 + Boilerplate HTML code for displaying these components on a web page
 + Configuration to bridge to a data center's JSON-based API (and not just limited to data centers)
 
+![Screenshot](https://github.com/facebook/puewue-frontend/blob/master/screenshot.png?raw=true)
+
 ## Getting Started
 
 1. Install gulp and Bower globally by running `npm install -g gulp && npm install -g bower`
